@@ -125,6 +125,7 @@
       font-weight: 600;
       color: #8b1e3f;
       font-size: 0.8rem;
+      text-align: center;
     }
 
     .dates {
@@ -138,6 +139,7 @@
       border-radius: 8px;
       font-size: 0.9rem;
       position: relative;
+      text-align: center;
     }
 
     .date.special {
@@ -255,7 +257,7 @@
       
       <div class="milestone">
         <h3>Próximo Marco</h3>
-        <p id="nextMilestone">18 de Outubro de 2024 - Nosso Primeiro Dia</p>
+        <p id="nextMilestone">18 de Outubro de 2025 - 1º Aniversário</p>
       </div>
     </div>
   </div>
@@ -376,15 +378,7 @@
     
     // Atualizar próximo marco
     function updateNextMilestone() {
-      const now = new Date();
-      const nextAnniversary = new Date(LOVE_YEAR + 1, LOVE_MONTH, LOVE_DAY);
-      
-      if (now < LOVE_DATE) {
-        nextMilestoneEl.textContent = "18 de Outubro de 2024 - Nosso Primeiro Dia";
-      } else {
-        const yearsTogether = now.getFullYear() - LOVE_YEAR;
-        nextMilestoneEl.textContent = `18 de Outubro de ${LOVE_YEAR + yearsTogether + 1} - ${yearsTogether + 1}º Aniversário`;
-      }
+      nextMilestoneEl.textContent = "18 de Outubro de 2025 - 1º Aniversário";
     }
     
     // Navegação do mês
