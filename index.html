@@ -3,35 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Uma página especial comemorando uma data marcante do nosso amor.">
   <title>Meu Amor</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ffd6e7 60%, #fab6d0 100%);
+      background: #ffd6e7;
       font-family: 'Arial', sans-serif;
       text-align: center;
       margin: 0;
       padding: 30px 20px;
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 70vh;
-      position: relative;
-      z-index: 1;
     }
 
     .heart-bg {
       position: absolute;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 0;
     }
@@ -42,44 +31,67 @@
       animation: float 8s linear infinite;
       opacity: 0;
       font-size: 20px;
-      will-change: transform, opacity;
     }
 
     @keyframes float {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
     }
 
     .logo {
       font-size: 3rem;
       margin-top: 20px;
     }
+
     h1 {
-      color: #5a0035;
+      color: white;
       font-size: 2rem;
       margin: 10px 0 5px;
-      text-shadow: 1px 1px 2px #fff8fa, 0 2px 8px #f9bfd5;
-      letter-spacing: 2px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
-    p, .dica, .mensagem-carinhosa {
-      color: #5a0035;
-      text-shadow: 1px 1px 2px #fff8fa, 0 2px 8px #f9bfd5;
+
+    p {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
+
     .dica {
       font-style: italic;
+      color: white;
       margin-bottom: 20px;
       min-height: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
+
     .mensagem-carinhosa {
+      color: white;
       font-weight: bold;
       margin: 10px 0;
       min-height: 20px;
-      transition: opacity .3s;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
+
     .senha-digitada {
-      background: #ffffffee;
+      background: #ffffffdd;
       border: 2px solid #c73866;
       border-radius: 12px;
       font-size: 2rem;
@@ -87,188 +99,124 @@
       padding: 10px 20px;
       width: fit-content;
       margin: 0 auto 25px;
-      color: #5a0035;
-      user-select: none;
-      transition: border-color .3s;
-      outline: none;
-    }
-
-    .senha-digitada.erro-anim {
-      animation: shake 0.4s;
-      border-color: #d6336c;
-    }
-    @keyframes shake {
-      0% { transform: translateX(0);}
-      20% { transform: translateX(-8px);}
-      40% { transform: translateX(8px);}
-      60% { transform: translateX(-8px);}
-      80% { transform: translateX(8px);}
-      100% { transform: translateX(0);}
+      color: #333;
     }
 
     .teclado {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      max-width: 320px;
+      max-width: 300px;
       margin: 0 auto 20px;
-      user-select: none;
     }
 
     .num-btn {
       font-size: 1.5rem;
       padding: 20px;
-      background-color: #c73866;
+      background-color: #fff;
       border: none;
       border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.10);
-      color: #fff;
-      transition: background 0.2s, transform 0.1s, color 0.2s;
-      outline: none;
-      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: #c73866;
+      transition: background 0.2s, transform 0.1s;
     }
-    .num-btn:active,
-    .num-btn:focus {
-      background-color: #5a0035;
-      color: #fff;
+
+    .num-btn:active {
+      background-color: #f9bfd5;
+      transform: scale(0.95);
     }
 
     .controle {
-      background-color: #ffd6e7;
-      color: #c73866;
-      border: 2px solid #c73866;
-    }
-    .controle:active,
-    .controle:focus {
-      background-color: #d6336c;
-      color: #fff;
+      background-color: #f9bfd5;
     }
 
     .erro {
-      color: #fff;
-      background: #ff3260;
-      border-radius: 8px;
-      padding: 5px 10px;
+      color: white;
       margin-top: 10px;
       display: none;
-      text-shadow: none;
-      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
-
-    @media (max-width: 480px) {
-      .teclado {
-        max-width: 98vw;
-        gap: 8px;
-      }
-      .num-btn {
-        font-size: 1.2rem;
-        padding: 12px;
-      }
-      .senha-digitada {
-        font-size: 1.3rem;
-        padding: 8px 10px;
-      }
-    }
-    * { -webkit-tap-highlight-color: transparent; }
   </style>
 </head>
 <body>
-  <div class="heart-bg" id="heartBg" aria-hidden="true"></div>
-  <main>
-    <div class="logo" aria-label="Logo coração">💖</div>
+  <div class="heart-bg" id="heartBg"></div>
+  
+  <div class="content">
+    <div class="logo">💖</div>
     <h1>Meu Amor</h1>
     <p>uma data especial para nós</p>
     <div class="dica" id="dica">Dica: O dia em que começamos nosso namoro</div>
     <div class="mensagem-carinhosa" id="mensagemCarinhosa"></div>
-    <div class="senha-digitada" id="senhaDigitada" aria-label="Campo de senha" tabindex="0"></div>
-    <form id="senhaForm" autocomplete="off" onsubmit="return false;">
-      <div class="teclado" role="group" aria-label="Teclado numérico">
-        <button type="button" class="num-btn" aria-label="Número 1">1</button>
-        <button type="button" class="num-btn" aria-label="Número 2">2</button>
-        <button type="button" class="num-btn" aria-label="Número 3">3</button>
-        <button type="button" class="num-btn" aria-label="Número 4">4</button>
-        <button type="button" class="num-btn" aria-label="Número 5">5</button>
-        <button type="button" class="num-btn" aria-label="Número 6">6</button>
-        <button type="button" class="num-btn" aria-label="Número 7">7</button>
-        <button type="button" class="num-btn" aria-label="Número 8">8</button>
-        <button type="button" class="num-btn" aria-label="Número 9">9</button>
-        <button type="button" class="num-btn controle" id="limpar" aria-label="Apagar">⌫</button>
-        <button type="button" class="num-btn" aria-label="Número 0">0</button>
-        <button type="button" class="num-btn controle" id="esconder" aria-label="Limpar senha">🔒</button>
-      </div>
-    </form>
-    <div class="erro" id="erro" role="alert">Senha incorreta 💭</div>
-  </main>
+
+    <div class="senha-digitada" id="senhaDigitada"></div>
+
+    <div class="teclado">
+      <button class="num-btn">1</button>
+      <button class="num-btn">2</button>
+      <button class="num-btn">3</button>
+      <button class="num-btn">4</button>
+      <button class="num-btn">5</button>
+      <button class="num-btn">6</button>
+      <button class="num-btn">7</button>
+      <button class="num-btn">8</button>
+      <button class="num-btn">9</button>
+      <button class="num-btn controle" id="limpar">⌫</button>
+      <button class="num-btn">0</button>
+      <button class="num-btn controle" id="esconder">🔒</button>
+    </div>
+
+    <div class="erro" id="erro">Senha incorreta 💭</div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Senha correta (exemplo: 18/10)
-    const senhaCorreta = "1810";
+    const senhaCorreta = "1810"; // Alterado para 18/10
     let senhaAtual = "";
-
-    // Elementos
     const senhaDigitada = document.getElementById('senhaDigitada');
     const erro = document.getElementById('erro');
     const mensagemCarinhosa = document.getElementById('mensagemCarinhosa');
     const heartBg = document.getElementById('heartBg');
-    const tecladoBtns = document.querySelectorAll('.num-btn');
 
-    // Sons suaves
-    const audioClick = new Audio('https://cdn.pixabay.com/audio/2022/10/16/audio_12aabfede1.mp3'); // clique
-    audioClick.volume = 0.15;
-    const audioWin = new Audio('https://cdn.pixabay.com/audio/2022/11/16/audio_125b7fa2e6.mp3'); // vitória
-    audioWin.volume = 0.18;
-
-    // Mensagens carinhosas variadas (aleatórias)
-    const mensagens = [
-      "Você é incrível!",
-      "Meu coração é seu!",
-      "Nosso amor é lindo!",
-      "Você completa minha vida!",
-      "Você me faz sorrir todos os dias!",
-      "Te amo mais do que ontem e menos do que amanhã.",
-      "Você é minha melhor escolha.",
-      "Meu porto seguro é você.",
-      "Cada momento contigo é especial.",
-      "Você é um sonho realizado!"
-    ];
-
-    // Corações flutuantes
+    // Criar corações flutuantes melhorados
     function criarCoracoes() {
-      heartBg.innerHTML = "";
       const cores = ['#ff0000', '#ff69b4', '#ff1493', '#c73866', '#d6336c'];
       const emojis = ['❤️', '💖', '💗', '💘', '💝'];
-      for (let i = 0; i < 18; i++) {
+      
+      for (let i = 0; i < 20; i++) {
         const heart = document.createElement('span');
         heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.color = cores[Math.floor(Math.random() * cores.length)];
-        heart.style.fontSize = (Math.random() * 18 + 16) + 'px';
+        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
         heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
         heart.style.animationDelay = Math.random() * 3 + 's';
         heartBg.appendChild(heart);
       }
     }
 
+    // Mensagens carinhosas conforme digita
+    const mensagens = {
+      1: "Você é incrível!",
+      2: "Meu coração é seu!",
+      3: "Nosso amor é lindo!",
+      4: "Você completa minha vida!"
+    };
+
     // Efeito de confete
     function triggerConfetti() {
       confetti({
-        particleCount: 180,
+        particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
         colors: ['#ff0000', '#ff69b4', '#ff1493']
       });
     }
 
-    // Bloquear colagem na senha
-    senhaDigitada.addEventListener('paste', (e) => e.preventDefault());
-
     // Teclado numérico
-    tecladoBtns.forEach(btn => {
+    document.querySelectorAll('.num-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        audioClick.currentTime = 0;
-        audioClick.play();
-
         const valor = btn.textContent;
+
         if (valor === "⌫") {
           senhaAtual = senhaAtual.slice(0, -1);
         } else if (valor === "🔒") {
@@ -276,37 +224,28 @@
         } else if (senhaAtual.length < senhaCorreta.length) {
           senhaAtual += valor;
         }
-        senhaDigitada.textContent = senhaAtual.replace(/./g, "•");
 
-        // Mensagem carinhosa aleatória
-        if (senhaAtual.length > 0) {
-          mensagemCarinhosa.textContent = mensagens[Math.floor(Math.random() * mensagens.length)];
-          mensagemCarinhosa.style.opacity = 1;
+        senhaDigitada.textContent = senhaAtual.replace(/./g, "•");
+        
+        // Mostrar mensagens carinhosas
+        if (senhaAtual.length in mensagens) {
+          mensagemCarinhosa.textContent = mensagens[senhaAtual.length];
         } else {
           mensagemCarinhosa.textContent = "";
-          mensagemCarinhosa.style.opacity = 0.6;
         }
 
-        // Validação de senha
         if (senhaAtual.length === senhaCorreta.length) {
           if (senhaAtual === senhaCorreta) {
             erro.style.display = 'none';
-            senhaDigitada.classList.remove('erro-anim');
-            audioWin.play();
-            mensagemCarinhosa.textContent = "Acertou! Você é minha pessoa favorita!";
             triggerConfetti();
             setTimeout(() => {
               window.location.href = 'escolha.html';
-            }, 1600);
+            }, 1500);
           } else {
             erro.style.display = 'block';
-            senhaDigitada.classList.add('erro-anim');
-            mensagemCarinhosa.textContent = "Tente novamente, amor!";
-            setTimeout(() => {
-              senhaDigitada.classList.remove('erro-anim');
-            }, 400);
             senhaAtual = "";
             senhaDigitada.textContent = "";
+            mensagemCarinhosa.textContent = "Tente novamente, amor!";
           }
         } else {
           erro.style.display = 'none';
@@ -316,13 +255,6 @@
 
     // Inicializar corações flutuantes
     criarCoracoes();
-
-    // Acessibilidade extra: permitir navegação por teclado e foco no campo de senha
-    senhaDigitada.tabIndex = 0;
-    senhaDigitada.setAttribute('aria-label', 'Campo de senha, pressione tab para acessar o teclado numérico.');
-
-    // Responsivo: ajustar quantidade de corações em mobile
-    window.addEventListener('resize', criarCoracoes);
   </script>
 </body>
 </html>
