@@ -297,7 +297,12 @@
         dateEl.className = 'date';
         dateEl.textContent = day;
         
-        // Verificar se é o dia do namoro
+        // Verificar se é o dia 18 de qualquer mês (dia especial)
+        if (day === 18) {
+          dateEl.classList.add('special');
+        }
+        
+        // Verificar se é o dia do nosso namoro (para manter o destaque original)
         if (day === LOVE_DAY && month === LOVE_MONTH && year === LOVE_YEAR) {
           dateEl.classList.add('special');
         }
