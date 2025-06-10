@@ -3,38 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Playlist romântica especial para nossa história de amor.">
   <title>Playlist do Amor</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --rosa-principal: #c73866;
-      --rosa-secundario: #d6336c;
-      --rosa-claro: #f9bfd5;
-      --fundo: #ffe4ec;
-    }
     body {
       margin: 0;
       padding: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--fundo);
+      background-color: #ffe4ec;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-    header.header {
-      background: linear-gradient(to right, var(--rosa-principal), var(--rosa-secundario));
+
+    .header {
+      background: linear-gradient(to right, #c73866, #d6336c);
       color: white;
       padding: 20px 0;
       text-align: center;
       position: relative;
     }
+
     .back-btn {
       position: absolute;
       top: 20px;
       right: 20px;
       background: white;
-      color: var(--rosa-principal);
+      color: #c73866;
       border: none;
       border-radius: 25px;
       padding: 8px 15px;
@@ -44,10 +39,12 @@
       z-index: 10;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .back-btn:hover {
-      background: var(--rosa-claro);
+      background: #f9bfd5;
       transform: translateY(-2px);
     }
+
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 2.8rem;
@@ -55,12 +52,14 @@
       margin: 20px 0 0;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
+
     .subtitle {
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 20px;
     }
-    main.content {
+
+    .content {
       flex: 1;
       padding: 20px;
       max-width: 500px;
@@ -68,57 +67,62 @@
       width: 100%;
       box-sizing: border-box;
     }
+
     .playlist {
       display: flex;
       flex-direction: column;
       gap: 25px;
       margin: 20px 0;
     }
+
     iframe {
       border: none;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(199, 56, 102, 0.15);
     }
-    footer.footer {
-      background: linear-gradient(to right, var(--rosa-principal), var(--rosa-secundario));
+
+    .footer {
+      background: linear-gradient(to right, #c73866, #d6336c);
       padding: 15px 0;
       text-align: center;
       color: white;
       font-size: 0.8rem;
     }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem;}
-      main.content { padding: 8px;}
-    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <button class="back-btn" onclick="window.location.href='escolha.html'" aria-label="Voltar para o menu">Voltar</button>
+
+  <div class="header">
+    <button class="back-btn" onclick="window.location.href='escolha.html'">Voltar</button>
     <h1>Playlist do Amor</h1>
     <div class="subtitle">Músicas que marcaram nossa história 💖</div>
-  </header>
-  <main class="content" role="main">
-    <section class="playlist" aria-label="Músicas">
+  </div>
+
+  <div class="content">
+    <div class="playlist">
       <iframe style="width: 100%;" height="152"
         src="https://open.spotify.com/embed/track/66KlcaDo2PlaFpumUHVG0W?utm_source=generator"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        title="Primeira música do casal"></iframe>
+        loading="lazy">
+      </iframe>
+
       <iframe style="width: 100%;" height="152"
         src="https://open.spotify.com/embed/track/1bJCIzuFCb8jPqmaCEQaHM?utm_source=generator"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        title="Segunda música do casal"></iframe>
+        loading="lazy">
+      </iframe>
+
       <iframe style="width: 100%;" height="152"
         src="https://open.spotify.com/embed/track/0in6Rc29qdyOkhKyYw4A84?utm_source=generator"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        title="Terceira música do casal"></iframe>
-    </section>
-  </main>
-  <footer class="footer">
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="footer">
     Feito com ❤️ para você
-  </footer>
+  </div>
+
 </body>
 </html>
