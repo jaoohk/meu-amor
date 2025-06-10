@@ -24,6 +24,7 @@
       margin-bottom: 20px;
       border-radius: 0 0 20px 20px;
       box-shadow: 0 4px 15px rgba(199, 56, 102, 0.2);
+      position: relative;
     }
 
     h1 {
@@ -48,22 +49,50 @@
       box-shadow: 0 4px 12px rgba(199, 56, 102, 0.1);
     }
 
-    .photo-grid {
+    .photo-collage {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 10px;
       margin: 20px 0;
+      position: relative;
     }
 
-    .photo {
+    .photo-collage img {
       width: 100%;
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
     }
 
-    .photo:hover {
-      transform: scale(1.03);
+    .photo-collage img:hover {
+      transform: scale(1.05);
+      z-index: 1;
+    }
+
+    /* Sobreposição para efeito de amontoado */
+    .photo-collage img:nth-child(1) {
+      transform: rotate(-5deg);
+      z-index: 3;
+    }
+    .photo-collage img:nth-child(2) {
+      transform: rotate(3deg);
+      z-index: 2;
+      margin-top: 15px;
+    }
+    .photo-collage img:nth-child(3) {
+      transform: rotate(-2deg);
+      z-index: 1;
+      margin-top: -10px;
+    }
+    .photo-collage img:nth-child(4) {
+      transform: rotate(4deg);
+      z-index: 2;
+      margin-top: 10px;
+    }
+    .photo-collage img:nth-child(5) {
+      transform: rotate(-3deg);
+      z-index: 3;
+      margin-top: -15px;
     }
 
     .love-letter {
@@ -136,30 +165,36 @@
     }
 
     .back-btn {
-      background: #c73866;
-      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #c73866;
       border: none;
       border-radius: 25px;
-      padding: 12px 25px;
-      font-size: 1rem;
-      margin: 20px 0 40px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .back-btn:hover {
-      background: #8b1e3f;
+      background: #f9bfd5;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
   <div class="header">
+    <button class="back-btn" onclick="window.location.href='escolha.html'">Voltar</button>
     <h1>Nossas Memórias</h1>
     <div class="subtitle">Cada momento com você é um tesouro 💖</div>
   </div>
 
   <div class="memory-section">
-    <h2>Nossa Música</h2>
+    <h2>Primeira música dedicada a nós</h2>
     <iframe style="border-radius:12px" 
       src="https://open.spotify.com/embed/track/66KlcaDo2PlaFpumUHVG0W?utm_source=generator&theme=0" 
       width="100%" height="152" frameBorder="0" 
@@ -171,11 +206,12 @@
 
   <div class="memory-section">
     <h2>Nossos Momentos</h2>
-    <div class="photo-grid">
-      <img src="https://i.imgur.com/bK2xVdJ.jpg" alt="Nós dois" class="photo">
-      <img src="https://i.imgur.com/placeholder1.jpg" alt="Memória 1" class="photo">
-      <img src="https://i.imgur.com/placeholder2.jpg" alt="Memória 2" class="photo">
-      <img src="https://i.imgur.com/placeholder3.jpg" alt="Memória 3" class="photo">
+    <div class="photo-collage">
+      <img src="https://i.imgur.com/gfW6bSm.jpeg" alt="Nossa foto 1">
+      <img src="https://i.imgur.com/g8kfu1M.jpeg" alt="Nossa foto 2">
+      <img src="https://i.imgur.com/J8MHKle.jpeg" alt="Nossa foto 3">
+      <img src="https://i.imgur.com/EAeONS3.jpeg" alt="Nossa foto 4">
+      <img src="https://i.imgur.com/3IAVGrl.jpeg" alt="Nossa foto 5">
     </div>
   </div>
 
@@ -188,8 +224,6 @@
 
   <button class="love-btn" id="loveBtn">Clique aqui se me ama ❤️</button>
   <div class="heart">❤️</div>
-
-  <button class="back-btn" onclick="window.location.href='escolha.html'">Voltar</button>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
