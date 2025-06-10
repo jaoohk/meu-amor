@@ -22,13 +22,12 @@
       padding: 25px 0;
       text-align: center;
       position: relative;
-      padding-top: 40px;
     }
 
     .back-btn {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 20px;
+      right: 20px;
       background: white;
       color: #c73866;
       border: none;
@@ -51,14 +50,12 @@
       font-size: 3rem;
       margin: 0;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      color: white;
     }
 
     .subtitle {
       font-size: 1.1rem;
       margin-top: 5px;
       opacity: 0.9;
-      color: white;
     }
 
     .content {
@@ -117,6 +114,11 @@
       transform: rotate(4deg);
       z-index: 2;
       margin-top: 10px;
+    }
+    .photo-collage img:nth-child(5) {
+      transform: rotate(-3deg);
+      z-index: 3;
+      margin-top: -15px;
     }
 
     .love-letter {
@@ -179,10 +181,8 @@
     .heart {
       font-size: 2rem;
       animation: pulse 1.5s infinite;
-      margin: 20px auto;
-      display: block;
-      text-align: center;
-      width: fit-content;
+      margin: 20px 0;
+      display: inline-block;
     }
 
     @keyframes pulse {
@@ -225,21 +225,18 @@
         <img src="https://i.imgur.com/g8kfu1M.jpeg" alt="Nossa foto 2">
         <img src="https://i.imgur.com/J8MHKle.jpeg" alt="Nossa foto 3">
         <img src="https://i.imgur.com/EAeONS3.jpeg" alt="Nossa foto 4">
+        <img src="https://i.imgur.com/3IAVGrl.jpeg" alt="Nossa foto 5">
       </div>
     </div>
 
     <div class="love-letter">
       <h2>Para você, meu amor...</h2>
-      <p>Oi, amor,</p>
-      <p>Desde o dia em que a gente se conheceu, minha vida mudou de um jeito que eu nem sei explicar. Parece que tudo ficou mais colorido, mais leve... mais feliz. Você chegou de mansinho, e sem perceber, virou tudo. Virou casa, virou paz, virou motivo pra sorrir todo dia.
-
-Cada risada sua, cada olhar, cada momento ao seu lado é um presente que eu guardo com todo carinho. Às vezes eu paro e penso em como a vida foi generosa comigo por ter me dado você. De verdade.
-
-Você é quem faz meus dias começarem com vontade e terminarem em paz. É o abraço que acalma, o apoio nas horas difíceis, a companhia que eu sempre quis. E eu sou tão, mas tão grato por te ter.
-
-Obrigado por ser você. Por ser tão incrível, tão de verdade. Por me fazer sentir amado só com um “oi” ou um sorriso. Por me fazer querer ser melhor todos os dias.
-
-Eu só queria que você soubesse disso: eu te amo, e vou estar aqui sempre, pra tudo. Pra rir com você, pra dividir os silêncios, pra sonhar junto e enfrentar qualquer coisa — de mãos dadas.</p>
+      <p>Oi, amor 💌</p>
+      <p>Desde o dia em que a gente se conheceu, minha vida mudou de um jeito que eu nem sei explicar. Parece que tudo ficou mais colorido, mais leve... mais feliz. Você chegou de mansinho, e sem perceber, virou tudo. Virou casa, virou paz, virou motivo pra sorrir todo dia.</p>
+      <p>Cada risada sua, cada olhar, cada momento ao seu lado é um presente que eu guardo com todo carinho. Às vezes eu paro e penso em como a vida foi generosa comigo por ter me dado você. De verdade.</p>
+      <p>Você é quem faz meus dias começarem com vontade e terminarem em paz. É o abraço que acalma, o apoio nas horas difíceis, a companhia que eu sempre quis. E eu sou tão, mas tão grato por te ter.</p>
+      <p>Obrigado por ser você. Por ser tão incrível, tão de verdade. Por me fazer sentir amado só com um "oi" ou um sorriso. Por me fazer querer ser melhor todos os dias.</p>
+      <p>Eu só queria que você soubesse disso: eu te amo, e vou estar aqui sempre, pra tudo. Pra rir com você, pra dividir os silêncios, pra sonhar junto e enfrentar qualquer coisa de mãos dadas.</p>
       <p class="hidden-message" id="secretMessage"> 💫</p>
     </div>
 
