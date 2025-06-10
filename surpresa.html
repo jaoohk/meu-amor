@@ -11,20 +11,38 @@
       padding: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: #fff5f9;
-      color: #333;
-      text-align: center;
-      max-width: 100%;
-      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .header {
       background: linear-gradient(to right, #c73866, #d6336c);
       color: white;
       padding: 25px 0;
-      margin-bottom: 20px;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 4px 15px rgba(199, 56, 102, 0.2);
+      text-align: center;
       position: relative;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #c73866;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-btn:hover {
+      background: #f9bfd5;
+      transform: translateY(-2px);
     }
 
     h1 {
@@ -40,12 +58,20 @@
       opacity: 0.9;
     }
 
+    .content {
+      flex: 1;
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     .memory-section {
       background: white;
       border-radius: 20px;
       padding: 25px;
       margin: 25px auto;
-      max-width: 500px;
       box-shadow: 0 4px 12px rgba(199, 56, 102, 0.1);
     }
 
@@ -101,7 +127,6 @@
       border-radius: 15px;
       padding: 20px;
       margin: 30px auto;
-      max-width: 500px;
       text-align: left;
       position: relative;
     }
@@ -129,10 +154,11 @@
       border-radius: 50px;
       padding: 15px 30px;
       font-size: 1.2rem;
-      margin: 20px 0;
+      margin: 20px auto;
       cursor: pointer;
       transition: all 0.3s;
       box-shadow: 0 4px 15px rgba(199, 56, 102, 0.3);
+      display: block;
     }
 
     .love-btn:hover {
@@ -164,25 +190,12 @@
       50% { transform: scale(1.3); }
     }
 
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: white;
-      color: #c73866;
-      border: none;
-      border-radius: 25px;
-      padding: 8px 15px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      z-index: 10;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .back-btn:hover {
-      background: #f9bfd5;
-      transform: translateY(-2px);
+    .footer {
+      background: linear-gradient(to right, #c73866, #d6336c);
+      padding: 15px 0;
+      text-align: center;
+      color: white;
+      font-size: 0.8rem;
     }
   </style>
 </head>
@@ -193,37 +206,43 @@
     <div class="subtitle">Cada momento com você é um tesouro 💖</div>
   </div>
 
-  <div class="memory-section">
-    <h2>Primeira música dedicada a nós</h2>
-    <iframe style="border-radius:12px" 
-      src="https://open.spotify.com/embed/track/66KlcaDo2PlaFpumUHVG0W?utm_source=generator&theme=0" 
-      width="100%" height="152" frameBorder="0" 
-      allowfullscreen="" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy">
-    </iframe>
-  </div>
-
-  <div class="memory-section">
-    <h2>Nossos Momentos</h2>
-    <div class="photo-collage">
-      <img src="https://i.imgur.com/gfW6bSm.jpeg" alt="Nossa foto 1">
-      <img src="https://i.imgur.com/g8kfu1M.jpeg" alt="Nossa foto 2">
-      <img src="https://i.imgur.com/J8MHKle.jpeg" alt="Nossa foto 3">
-      <img src="https://i.imgur.com/EAeONS3.jpeg" alt="Nossa foto 4">
-      <img src="https://i.imgur.com/3IAVGrl.jpeg" alt="Nossa foto 5">
+  <div class="content">
+    <div class="memory-section">
+      <h2>Primeira música dedicada a nós</h2>
+      <iframe style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/66KlcaDo2PlaFpumUHVG0W?utm_source=generator&theme=0" 
+        width="100%" height="152" frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
     </div>
+
+    <div class="memory-section">
+      <h2>Nossos Momentos</h2>
+      <div class="photo-collage">
+        <img src="https://i.imgur.com/gfW6bSm.jpeg" alt="Nossa foto 1">
+        <img src="https://i.imgur.com/g8kfu1M.jpeg" alt="Nossa foto 2">
+        <img src="https://i.imgur.com/J8MHKle.jpeg" alt="Nossa foto 3">
+        <img src="https://i.imgur.com/EAeONS3.jpeg" alt="Nossa foto 4">
+        <img src="https://i.imgur.com/3IAVGrl.jpeg" alt="Nossa foto 5">
+      </div>
+    </div>
+
+    <div class="love-letter">
+      <h2>Para você, meu amor...</h2>
+      <p>Desde o primeiro dia em que nossos caminhos se cruzaram, minha vida ganhou novas cores. Cada riso, cada olhar, cada segundo ao seu lado é um presente que guardo com carinho no meu coração.</p>
+      <p>Você é a razão do meu sorriso todas as manhãs e minha paz todas as noites. Obrigado por ser exatamente quem você é.</p>
+      <p class="hidden-message" id="secretMessage">P.S.: Eu te amo mais do que todas as estrelas no céu. 💫</p>
+    </div>
+
+    <button class="love-btn" id="loveBtn">Clique aqui se me ama ❤️</button>
+    <div class="heart">❤️</div>
   </div>
 
-  <div class="love-letter">
-    <h2>Para você, meu amor...</h2>
-    <p>Desde o primeiro dia em que nossos caminhos se cruzaram, minha vida ganhou novas cores. Cada riso, cada olhar, cada segundo ao seu lado é um presente que guardo com carinho no meu coração.</p>
-    <p>Você é a razão do meu sorriso todas as manhãs e minha paz todas as noites. Obrigado por ser exatamente quem você é.</p>
-    <p class="hidden-message" id="secretMessage">P.S.: Eu te amo mais do que todas as estrelas no céu. 💫</p>
+  <div class="footer">
+    Feito com ❤️ para você
   </div>
-
-  <button class="love-btn" id="loveBtn">Clique aqui se me ama ❤️</button>
-  <div class="heart">❤️</div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
