@@ -3,41 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Calendário e contador de tempo do nosso amor. Feito com carinho!">
-  <title>Calendário do Amor</title>
+  <title>Menu do Nosso Amor</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --rosa-principal: #c73866;
-      --rosa-secundario: #d6336c;
-      --rosa-claro: #f9bfd5;
-      --fundo: #ffe4ec;
-      --texto-escuro: #8b1e3f;
-      --branco: #fff;
-      --efeito-hover: 0 8px 32px 0 rgba(199,56,102,0.12), 0 1.5px 8px 0 rgba(214,51,108,0.09);
-    }
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      background: #ffe4ec;
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--fundo);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-    header.header {
-      background: linear-gradient(to right, var(--rosa-principal), var(--rosa-secundario));
+
+    .header {
+      background: linear-gradient(to right, #c73866, #d6336c);
       color: white;
       padding: 20px 0;
       text-align: center;
       position: relative;
+      padding-top: 40px;
     }
+
     .back-btn {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--branco);
-      color: var(--rosa-principal);
+      top: 10px;
+      left: 10px;
+      background: white;
+      color: #c73866;
       border: none;
       border-radius: 25px;
       padding: 8px 15px;
@@ -47,403 +40,120 @@
       z-index: 10;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    .back-btn:hover, .month-nav:hover {
-      background: var(--rosa-claro);
-      color: var(--rosa-secundario);
+
+    .back-btn:hover {
+      background: #f9bfd5;
       transform: translateY(-2px);
     }
+
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem;
-      margin: 0;
       color: white;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 2.8rem;
+      margin: 20px 0 0;
     }
+
     .subtitle {
       font-size: 1rem;
-      margin-top: 5px;
-      color: rgba(255, 255, 255, 0.9);
+      color: white;
+      margin-bottom: 20px;
+      opacity: 0.9;
     }
-    main.content {
+
+    .container {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       padding: 20px;
-      max-width: 520px;
+      max-width: 500px;
       margin: 0 auto;
       width: 100%;
       box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
     }
-    section.month {
-      background: white;
-      border-radius: 15px;
-      padding: 15px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 12px rgba(199, 56, 102, 0.13);
-      transition: box-shadow 0.35s, transform 0.35s, background 0.25s;
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
       cursor: pointer;
-    }
-    section.month:hover,
-    section.month:focus-within {
-      box-shadow: var(--efeito-hover);
-      background: #fff0f6;
-      transform: translateY(-6px) scale(1.02);
-      outline: none;
-    }
-    .month-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      gap: 10px;
-    }
-    .month-title {
-      color: var(--rosa-principal);
-      font-weight: 600;
-      font-size: 1.3rem;
       text-align: center;
-      flex: 1 1 0%;
     }
-    .month-nav {
-      background: var(--rosa-claro);
-      border: none;
-      border-radius: 50%;
-      width: 34px;
-      height: 34px;
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: var(--rosa-principal);
-      font-weight: bold;
-      cursor: pointer;
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: #c73866;
       font-size: 1.2rem;
-      transition: background 0.3s, color 0.3s;
-      outline: none;
     }
-    .days, .dates {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: #8b1e3f;
+      margin-top: 5px;
     }
-    .day-name {
-      font-weight: 600;
-      color: var(--texto-escuro);
-      font-size: 0.87rem;
-      text-align: center;
-      padding-bottom: 2px;
-      letter-spacing: 0.5px;
-      background: none;
+
+    .heart {
+      font-size: 1.2rem;
+      color: #c73866;
+      margin-top: 8px;
     }
-    .date {
-      padding: 8px 0;
-      border-radius: 8px;
-      font-size: 0.99rem;
-      position: relative;
-      text-align: center;
-      background: none;
-      transition: background 0.2s, color 0.2s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .date:hover,
-    .date:focus {
-      background: #fff0f6;
-      color: var(--rosa-principal);
-      box-shadow: var(--efeito-hover);
-      outline: 1.5px solid var(--rosa-claro);
-      font-weight: 600;
-      z-index: 2;
-    }
-    .date.special {
-      background: var(--rosa-claro);
-      color: var(--rosa-principal);
-      font-weight: 600;
-    }
-    .date.special::after {
-      content: '❤️';
-      position: absolute;
-      top: -8px;
-      right: -5px;
-      font-size: 13px;
-    }
-    .date.today {
-      background: var(--rosa-principal);
-      color: white;
-      font-weight: 700;
-      box-shadow: 0 2px 5px rgba(199, 56, 102, 0.22);
-    }
-    .date.other-month {
-      color: #bbb;
-      background: none;
-    }
-    section.milestones {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 0 auto;
-      box-shadow: 0 4px 12px rgba(199, 56, 102, 0.14);
-      transition: box-shadow 0.35s, transform 0.35s, background 0.25s;
-      cursor: pointer;
-    }
-    section.milestones:hover,
-    section.milestones:focus-within {
-      box-shadow: var(--efeito-hover);
-      background: #fff0f6;
-      transform: translateY(-6px) scale(1.02);
-      outline: none;
-    }
-    .milestones h2 {
-      color: var(--rosa-principal);
-      font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
-      margin-top: 0;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .milestone {
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px dashed var(--rosa-claro);
-      transition: box-shadow 0.35s, background 0.25s;
-      cursor: pointer;
-    }
-    .milestone:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .milestone:hover,
-    .milestone:focus {
-      background: #fff0f6;
-      box-shadow: 0 4px 16px 0 rgba(199,56,102,0.11);
-      outline: 1.5px solid var(--rosa-claro);
-    }
-    .milestone h3 {
-      color: var(--texto-escuro);
-      margin-bottom: 4px;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .milestone p {
-      margin: 0;
-      color: var(--rosa-principal);
-      font-weight: 600;
-      font-size: 1.01rem;
-    }
-    footer.footer {
-      background: linear-gradient(to right, var(--rosa-principal), var(--rosa-secundario));
+
+    .footer {
+      background: linear-gradient(to right, #c73866, #d6336c);
       padding: 15px 0;
       text-align: center;
       color: white;
-      font-size: 0.87rem;
-      letter-spacing: 0.3px;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .month-title { font-size: 1rem;}
-      main.content { padding: 8px; }
-      section.month, section.milestones { padding: 10px; }
-      .milestones h2 { font-size: 1.3rem;}
-      .milestone h3 { font-size: 0.98rem;}
-      .milestone p { font-size: 0.94rem;}
+      font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <button class="back-btn" onclick="window.location.href='escolha.html'" aria-label="Voltar para o menu">Voltar</button>
-    <h1>Calendário do Amor</h1>
-    <div class="subtitle">♡ Cada dia com você é um presente ♡</div>
-  </header>
 
-  <main class="content" role="main">
-    <section class="month" aria-label="Calendário mensal" tabindex="0">
-      <div class="month-header">
-        <button class="month-nav" id="prevMonth" aria-label="Mês anterior" tabindex="0">❮</button>
-        <div class="month-title" id="monthTitle"></div>
-        <button class="month-nav" id="nextMonth" aria-label="Próximo mês" tabindex="0">❯</button>
-      </div>
-      <div class="days" id="daysHeader"></div>
-      <div class="dates" id="datesGrid"></div>
-    </section>
+  <div class="header">
+    <button class="back-btn" onclick="window.location.href='index.html'">Voltar</button>
+    <h1>Menu do Nosso Amor</h1>
+    <div class="subtitle">♡ juntos para sempre ♡</div>
+  </div>
 
-    <section class="milestones" aria-label="Marcos e contagem do relacionamento" tabindex="0">
-      <h2>Marcos do Nosso Amor</h2>
-      <div class="milestone" tabindex="0">
-        <h3>Nosso Primeiro Dia</h3>
-        <p>18 de Outubro de 2024</p>
-      </div>
-      <div class="milestone" tabindex="0">
-        <h3>Tempo Juntos</h3>
-        <p id="timeTogether">Começa em breve!</p>
-      </div>
-      <div class="milestone" tabindex="0">
-        <h3>Próximo Marco</h3>
-        <p id="nextMilestone">18 de Outubro de 2025 - 1º Aniversário</p>
-      </div>
-    </section>
-  </main>
+  <div class="container">
+    <div class="card" onclick="window.location.href='surpresa.html'">
+      <div class="icon">📷</div>
+      <div class="card-title">Nossas Memórias</div>
+      <div class="card-desc">Momentos preciosos com você</div>
+      <div class="heart">♡</div>
+    </div>
 
-  <footer class="footer">
+    <div class="card" onclick="window.location.href='contador.html'">
+      <div class="icon">📅</div>
+      <div class="card-title">Calendário do Amor</div>
+      <div class="card-desc">Contador de tempo do nosso amor</div>
+      <div class="heart">♡</div>
+    </div>
+
+    <div class="card" onclick="window.location.href='playlist.html'">
+      <div class="icon">🎵</div>
+      <div class="card-title">Playlist do Amor</div>
+      <div class="card-desc">Ouça a trilha sonora do nosso amor</div>
+      <div class="heart">♡</div>
+    </div>
+  </div>
+
+  <div class="footer">
     Feito com ❤️ para você
-  </footer>
+  </div>
 
-  <script>
-    // ========== CONFIGURAÇÕES ==========
-    const LOVE_DATE = new Date('2024-10-18T00:00:00');
-    const monthNames = [
-      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-    ];
-    const dayNames = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-
-    // ========== ESTADO ==========
-    let currentMonth = new Date().getMonth();
-    let currentYear = new Date().getFullYear();
-
-    // ========== ELEMENTOS ==========
-    const monthTitleEl = document.getElementById('monthTitle');
-    const daysHeaderEl = document.getElementById('daysHeader');
-    const datesGridEl = document.getElementById('datesGrid');
-    const timeTogetherEl = document.getElementById('timeTogether');
-    const nextMilestoneEl = document.getElementById('nextMilestone');
-    const prevMonthBtn = document.getElementById('prevMonth');
-    const nextMonthBtn = document.getElementById('nextMonth');
-
-    // ========== FUNÇÕES DE UI ==========
-    function renderDaysHeader() {
-      daysHeaderEl.innerHTML = '';
-      for (const d of dayNames) {
-        const el = document.createElement('div');
-        el.className = 'day-name';
-        el.textContent = d;
-        daysHeaderEl.appendChild(el);
-      }
-    }
-
-    function generateCalendar(month, year) {
-      monthTitleEl.textContent = `${monthNames[month]} ${year}`;
-      datesGridEl.innerHTML = '';
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const daysInLastMonth = new Date(year, month, 0).getDate();
-
-      // Dias do mês anterior
-      for (let i = 0; i < firstDay; i++) {
-        const dateEl = document.createElement('div');
-        dateEl.className = 'date other-month';
-        dateEl.textContent = daysInLastMonth - firstDay + i + 1;
-        datesGridEl.appendChild(dateEl);
-      }
-
-      // Dias do mês atual
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dateEl = document.createElement('div');
-        dateEl.className = 'date';
-        dateEl.textContent = day;
-
-        // Dia especial: 18 de qualquer mês
-        if (day === 18) dateEl.classList.add('special');
-
-        // Dia do nosso namoro (destaque especial)
-        if (
-          day === LOVE_DATE.getDate() &&
-          month === LOVE_DATE.getMonth() &&
-          year === LOVE_DATE.getFullYear()
-        ) {
-          dateEl.classList.add('special');
-        }
-
-        // Hoje
-        const today = new Date();
-        if (
-          day === today.getDate() &&
-          month === today.getMonth() &&
-          year === today.getFullYear()
-        ) {
-          dateEl.classList.add('today');
-        }
-        datesGridEl.appendChild(dateEl);
-      }
-
-      // Dias do próximo mês
-      const totalCells = firstDay + daysInMonth;
-      const minCells = 35; // Sempre 5 linhas, ou 6 se "overflow"
-      const needSixRows = totalCells > 35;
-      const remainingCells = (needSixRows ? 42 : minCells) - totalCells;
-      for (let i = 1; i <= remainingCells; i++) {
-        const dateEl = document.createElement('div');
-        dateEl.className = 'date other-month';
-        dateEl.textContent = i;
-        datesGridEl.appendChild(dateEl);
-      }
-    }
-
-    // ========== FUNÇÕES DE LÓGICA ==========
-    function updateTimeTogether() {
-      const now = new Date();
-      if (now < LOVE_DATE) {
-        const diffTime = LOVE_DATE - now;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        timeTogetherEl.textContent = `Começa em ${diffDays} dia${diffDays > 1 ? 's' : ''}!`;
-      } else {
-        let y = now.getFullYear() - LOVE_DATE.getFullYear();
-        let m = now.getMonth() - LOVE_DATE.getMonth();
-        let d = now.getDate() - LOVE_DATE.getDate();
-
-        if (d < 0) {
-          m -= 1;
-          const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-          d += prevMonth.getDate();
-        }
-        if (m < 0) {
-          y -= 1;
-          m += 12;
-        }
-        let text = '';
-        if (y > 0) text += `${y} ano${y > 1 ? 's' : ''}`;
-        if (m > 0) text += `${text ? ', ' : ''}${m} mes${m > 1 ? 'es' : ''}`;
-        if (d > 0 || text === '') text += `${text ? ' e ' : ''}${d} dia${d !== 1 ? 's' : ''}`;
-        timeTogetherEl.textContent = text;
-      }
-    }
-
-    function updateNextMilestone() {
-      nextMilestoneEl.textContent = "18 de Outubro de 2025 - 1º Aniversário";
-    }
-
-    prevMonthBtn.addEventListener('click', () => {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      generateCalendar(currentMonth, currentYear);
-    });
-    nextMonthBtn.addEventListener('click', () => {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      generateCalendar(currentMonth, currentYear);
-    });
-
-    renderDaysHeader();
-    generateCalendar(currentMonth, currentYear);
-    updateTimeTogether();
-    updateNextMilestone();
-
-    setInterval(() => {
-      updateTimeTogether();
-      updateNextMilestone();
-      const now = new Date();
-      if (now.getMonth() !== currentMonth || now.getFullYear() !== currentYear) {
-        currentMonth = now.getMonth();
-        currentYear = now.getFullYear();
-        generateCalendar(currentMonth, currentYear);
-      }
-    }, 60000);
-  </script>
 </body>
 </html>
