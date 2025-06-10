@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playlist do Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffe4ec;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #c73866;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #8b1e3f;
+      margin-bottom: 30px;
+    }
+
+    .playlist {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    iframe {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(199, 56, 102, 0.15);
+    }
+
+    .back-btn {
+      background: #c73866;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      margin: 40px auto 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #8b1e3f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Playlist do Amor</h1>
+  <div class="subtitle">Músicas que marcaram nossa história 💖</div>
+
+  <div class="playlist">
+    <iframe style="width: 100%;" height="152"
+      src="https://open.spotify.com/embed/track/66KlcaDo2PlaFpumUHVG0W?utm_source=generator"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+
+    <iframe style="width: 100%;" height="152"
+      src="https://open.spotify.com/embed/track/1bJCIzuFCb8jPqmaCEQaHM?utm_source=generator"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+
+    <iframe style="width: 100%;" height="152"
+      src="https://open.spotify.com/embed/track/0in6Rc29qdyOkhKyYw4A84?utm_source=generator"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='escolha.html'">Voltar</button>
+
+</body>
+</html>
