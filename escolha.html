@@ -3,74 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Escolha sua Surpresa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Menu do Nosso Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: #ffd6e7;
-      font-family: 'Arial', sans-serif;
+      background: #ffe4ec;
+      font-family: 'Montserrat', sans-serif;
       text-align: center;
-      min-height: 100vh;
     }
 
     h1 {
-      color: #c73866;
-      font-size: 2.4rem;
-      margin: 40px 0 20px;
       font-family: 'Great Vibes', cursive;
+      color: #c73866;
+      font-size: 2.8rem;
+      margin-top: 30px;
     }
 
-    .options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      padding: 0 30px;
-      max-width: 800px;
+    .subtitle {
+      font-size: 1rem;
+      color: #8b1e3f;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 20px 40px;
+      max-width: 400px;
       margin: 0 auto;
     }
 
     .card {
       background: #fff;
-      border: 2px solid #c73866;
-      border-radius: 25px;
-      padding: 40px 25px;
-      color: #c73866;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
       cursor: pointer;
-      min-height: 220px;
     }
 
     .card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
     }
 
-    .card .icon {
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-
-    .card h2 {
-      font-size: 1.6rem;
+    .icon {
+      font-size: 2.2rem;
       margin-bottom: 10px;
     }
 
-    .card p {
-      font-size: 1.05rem;
+    .card-title {
+      font-weight: 600;
+      color: #c73866;
+      font-size: 1.2rem;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
       color: #8b1e3f;
-      margin: 0;
-      line-height: 1.5;
+      margin-top: 5px;
     }
 
     .heart {
-      font-size: 3.5rem;
-      margin: 40px 0;
-      animation: pulse 1.5s infinite;
+      font-size: 1.2rem;
+      color: #c73866;
+      margin-top: 8px;
     }
+  </style>
+</head>
+<body>
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale
+  <h1>Menu do Nosso Amor</h1>
+  <div class="subtitle">♡ juntos para sempre ♡</div>
+
+  <div class="container">
+    <div class="card" onclick="window.location.href='surpresa.html'">
+      <div class="icon">📷</div>
+      <div class="card-title">Nossas Memórias</div>
+      <div class="card-desc">Momentos preciosos com você</div>
+      <div class="heart">♡</div>
+    </div>
+
+    <div class="card" onclick="window.location.href='contador.html'">
+      <div class="icon">📅</div>
+      <div class="card-title">Calendário do Amor</div>
+      <div class="card-desc">Contador de tempo do nosso amor</div>
+      <div class="heart">♡</div>
+    </div>
+
+    <div class="card" onclick="alert('Em breve 💖')">
+      <div class="icon">🧠</div>
+      <div class="card-title">Jogo da Memória</div>
+      <div class="card-desc">Descubra pares de momentos</div>
+      <div class="heart">♡</div>
+    </div>
+  </div>
+
+</body>
+</html>
